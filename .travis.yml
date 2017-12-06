@@ -1,0 +1,36 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+    global:
+        - COMPOSER_FLAGS=""
+        - CHECK_PHP_SYNTAX="no"
+
+matrix:
+  include:
+    - php: 7.1
+    - php: 7.2
+    - php: 7.2
+      env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
+    - php: 7.2
+      env: DEPENDENCIES=beta
+    - php: 7.2
+      env: CHECK_PHP_SYNTAX="yes"
+
+before_install:
+  - if [ "$DEPENDENCIES" = "beta" ]; then composer config minimum-stability beta; fi;
+  - phpenv config-rm xdebug.ini || echo "xdebug not available"
+  - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+install:
+  - composer update --prefer-dist --no-progress --no-suggest $COMPOSER_FLAGS --ansi
+
+script:
+    - if [[ "$CHECK_PHP_SYNTAX" == "no" ]]; then ./vendor/bin/phpunit; fi;
+    - if [[ "$CHECK_PHP_SYNTAX" == "yes" ]]; then ./vendor/bin/php-cs-fixer fix --dry-run --diff --no-interaction -v; fi;
