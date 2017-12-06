@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx version="1.1" creator="Visorando" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <fail>
+  <name>Randonnée du 04/09/2017 à 10:49</name>
+  <link href="https://www.visorando.com/randonnee-/768223">
+   <text>https://www.visorando.com/randonnee-/768223</text>
+  </link>
+ </metadata>
+ <trk>
+  <name>Randonnée du 04/09/2017 à 10:49</name>
+  <unknown>
+   <foobar lat="42.911255" lon="3.025139">
+    <ele>80</ele>
+    <time>2017-09-04T12:30:05+02:00</time>
+   </foobar>
+   <trkpt error="true" lat="42.911337" lon="3.024852">
+    <ele>77</ele>
+    <time>2017-09-04T12:30:21+02:00</time>
+   </trkpt>
+  </unknown>
+ </trk></gpx>

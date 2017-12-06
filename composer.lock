@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad295ce2ac0d8764c5b40a022911e7ca",
+    "content-hash": "c6c95fbd8d5408cf6670c81c125e8cb3",
     "packages": [
+        {
+            "name": "sibyx/phpgpx",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sibyx/phpGPX.git",
+                "reference": "f72729eeb34046a96c1b0cb8a57c11164dde78f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sibyx/phpGPX/zipball/f72729eeb34046a96c1b0cb8a57c11164dde78f6",
+                "reference": "f72729eeb34046a96c1b0cb8a57c11164dde78f6",
+                "shasum": ""
+            },
+            "require": {
+                "lib-libxml": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "evert/phpdoc-md": "~0.2.0",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "phpGPX": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Dubec",
+                    "email": "jakub.dubec@gmail.com",
+                    "homepage": "https://jakubdubec.me"
+                }
+            ],
+            "description": "A simple PHP library for GPX import/export",
+            "time": "2017-09-23T19:32:48+00:00"
+        },
         {
             "name": "symfony/console",
             "version": "v4.0.0",
@@ -2432,7 +2474,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "sibyx/phpgpx": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
