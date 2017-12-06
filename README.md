@@ -1,4 +1,4 @@
-# GPC cli tool
+# GPX cli tool
 
 [![Build Status](https://travis-ci.org/odolbeau/gpx-cli.png)](https://travis-ci.org/odolbeau/gpx-cli)
 [![Latest Stable Version](https://poser.pugx.org/odolbeau/gpx-cli/v/stable.svg)](https://packagist.org/packages/odolbeau/gpx-cli)
