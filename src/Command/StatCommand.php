@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\GpxLoader;
+use App\GPX\DuplicatePointsFinder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -49,6 +50,26 @@ class StatCommand extends Command
                 "As there is more than 1 track ($count) in your GPX file, you should consider to split it. Use:",
                 "./console split $file /tmp/gpx/",
             ]);
+        }
+
+        foreach ($gpxFile->tracks as $index => $track) {
+            $finder = new DuplicatePointsFinder($track->getPoints());
+
+            $trackPoints = $track->getPoints();
+            $duplicatePoints = $finder->findDuplicates($track->getPoints());
+
+            $io->section("Track #$index");
+            $io->text([
+                sprintf('This track contains <info>%d</info> segments and <info>%d</info> points.', count($track->segments), count($trackPoints)),
+                sprintf('This track contains <info>%d</info> duplicated points.', count($duplicatePoints)),
+            ]);
+
+            if (0 < $count = count($duplicatePoints)) {
+                $io->note([
+                    "As there is $count duplicate points in your track, you should consider to clean it. Use:",
+                    "./console remove-duplicate-points $file /tmp/gpx/",
+                ]);
+            }
         }
     }
 }
