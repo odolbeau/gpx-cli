@@ -53,10 +53,9 @@ class StatCommand extends Command
         }
 
         foreach ($gpxFile->tracks as $index => $track) {
-            $finder = new DuplicatePointsFinder($track->getPoints());
-
             $trackPoints = $track->getPoints();
-            $duplicatePoints = $finder->findDuplicates($track->getPoints());
+            $finder = new DuplicatePointsFinder($trackPoints);
+            $duplicatePoints = $finder->findDuplicates();
 
             $io->section("Track #$index");
             $io->text([
