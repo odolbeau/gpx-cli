@@ -7,6 +7,7 @@ use Symfony\Component\Console\Application;
 
 $application = new Application();
 
+$application->add(new App\Command\MergeCommand());
 $application->add(new App\Command\RemoveDuplicatePointsCommand());
 $application->add(new App\Command\SplitCommand());
 $application->add(new App\Command\StatCommand());
